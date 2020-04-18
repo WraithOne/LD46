@@ -1,0 +1,33 @@
+function init(self)
+	-- use the x and y component to track which screen is currently displayed.
+	self.screen_pos = vmath.vector3(0, 0, 0)
+	self.next_screen = nil
+	self.current_screen = nil
+	self.loading = false
+	self.dir = nil
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
