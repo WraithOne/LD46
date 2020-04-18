@@ -18,3 +18,6 @@ title = LD46
 [input]
 game_binding = /Input/game.input_bindingc
 
+[tilemap]
+max_tile_count = 3072
+
