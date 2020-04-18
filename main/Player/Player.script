@@ -45,7 +45,7 @@ function update(self, dt)
 		end
 
 		-- done animating
-	self.dir = vmath.vector3() 
+		self.dir = vmath.vector3()
 end
 
 function on_message(self, message_id, message, sender)
