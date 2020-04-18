@@ -1,6 +1,6 @@
 components {
-  id: "Player"
-  component: "/main/Player/Player.script"
+  id: "player"
+  component: "/main/Player/player.script"
   position {
     x: 0.0
     y: 0.0
@@ -16,7 +16,7 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/main/Player/Arzt.atlas\"\n"
+  data: "tile_set: \"/main/Player/player.atlas\"\n"
   "default_animation: \"Idle\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
@@ -34,15 +34,15 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "Arzt"
+  id: "collider"
   type: "collisionobject"
   data: "collision_shape: \"/main/Map/hospital1.tilemap\"\n"
-  "type: COLLISION_OBJECT_TYPE_TRIGGER\n"
+  "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
   "mass: 0.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
-  "group: \"default\"\n"
-  "mask: \"default\"\n"
+  "group: \"player\"\n"
+  "mask: \"world\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"

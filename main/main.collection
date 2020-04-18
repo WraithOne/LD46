@@ -1,12 +1,32 @@
 name: "main"
 instances {
-  id: "Player"
-  prototype: "/main/Player/Player.go"
-  children: "Camera"
+  id: "player"
+  prototype: "/main/Player/player.go"
+  children: "camera"
+  position {
+    x: 564.0
+    y: 326.0
+    z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "map"
+  prototype: "/main/Map/map.go"
   position {
     x: 0.0
     y: 0.0
-    z: 1.0
+    z: 0.0
   }
   rotation {
     x: 0.0
@@ -22,39 +42,10 @@ instances {
 }
 scale_along_z: 0
 embedded_instances {
-  id: "Game"
-  children: "Player"
-  data: "components {\n"
-  "  id: \"hospital1\"\n"
-  "  component: \"/main/Map/hospital1.tilemap\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"Game\"\n"
-  "  component: \"/main/Game.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
+  id: "game"
+  children: "map"
+  children: "player"
+  data: ""
   position {
     x: 0.0
     y: 0.0
@@ -73,7 +64,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "Camera"
+  id: "camera"
   data: "embedded_components {\n"
   "  id: \"camera\"\n"
   "  type: \"camera\"\n"
