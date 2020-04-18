@@ -2,6 +2,10 @@ images {
   image: "/assets/Arzt.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/Arzt2.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 animations {
   id: "Idle"
   playback: PLAYBACK_LOOP_FORWARD
