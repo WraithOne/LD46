@@ -36,13 +36,13 @@ embedded_components {
 embedded_components {
   id: "collider"
   type: "collisionobject"
-  data: "collision_shape: \"/main/Map/hospital1.tilemap\"\n"
+  data: "collision_shape: \"\"\n"
   "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
   "mass: 0.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
   "group: \"player\"\n"
-  "mask: \"world\"\n"
+  "mask: \"blocker\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
@@ -64,7 +64,7 @@ embedded_components {
   "}\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
-  "locked_rotation: true\n"
+  "locked_rotation: false\n"
   ""
   position {
     x: 0.0

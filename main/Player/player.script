@@ -1,11 +1,11 @@
 
 -- Movement speed in Pixel
-local speed = 70
+local speed = 100
 
 function init(self)
 	-- Get Input focus
 	msg.post(".", "acquire_input_focus")
-	msg.post("/player#collider", "enable")
+	msg.post("#collider", "enable")
 	msg.post("/camera#camera", "acquire_camera_focus")
 	
 	-- Add variable for view direction
@@ -16,11 +16,6 @@ function init(self)
 
 	-- correction vector
 	self.correction = vmath.vector3()
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
 end
 
 function update(self, dt)
@@ -56,7 +51,6 @@ function update(self, dt)
 		self.correction = vmath.vector3()
 end
 
-
 function on_message(self, message_id, message, sender)
 	-- Handle collision
 	if message_id == hash("contact_point_response") then
@@ -90,9 +84,4 @@ function on_input(self, action_id, action)
 	elseif action_id == hash("move_right") then
 		self.dir.x = 1
 	end
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Remove this function if not needed
 end

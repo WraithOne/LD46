@@ -21,7 +21,7 @@ embedded_components {
   "mass: 0.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
-  "group: \"world\"\n"
+  "group: \"blocker\"\n"
   "mask: \"player\"\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
