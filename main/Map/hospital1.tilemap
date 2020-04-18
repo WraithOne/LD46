@@ -1,4 +1,4 @@
-tile_set: "/main/Map/tiles.tilesource"
+tile_set: "/assets/Map/tiles.tilesource"
 layers {
   id: "Floor"
   z: 0.0
