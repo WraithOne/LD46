@@ -13,9 +13,14 @@ components {
     w: 1.0
   }
 }
-components {
-  id: "Arzt"
-  component: "/main/Player/Arzt.sprite"
+embedded_components {
+  id: "sprite"
+  type: "sprite"
+  data: "tile_set: \"/main/Player/Arzt.atlas\"\n"
+  "default_animation: \"Arzt\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
   position {
     x: 0.0
     y: 0.0
