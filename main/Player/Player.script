@@ -5,7 +5,8 @@ local speed = 70
 function init(self)
 	-- Get Input focus
 	msg.post(".", "acquire_input_focus")
-
+	msg.post("/Camera#camera", "acquire_camera_focus")
+	
 	-- Add variable for view direction
 	self.dir = vmath.vector3()
 

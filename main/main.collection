@@ -2,9 +2,10 @@ name: "main"
 instances {
   id: "Player"
   prototype: "/main/Player/Player.go"
+  children: "Camera"
   position {
-    x: 554.0
-    y: 499.0
+    x: 0.0
+    y: 0.0
     z: 1.0
   }
   rotation {
@@ -21,11 +22,11 @@ instances {
 }
 scale_along_z: 0
 embedded_instances {
-  id: "game"
+  id: "Game"
   children: "Player"
   data: "components {\n"
-  "  id: \"Game\"\n"
-  "  component: \"/main/Game.script\"\n"
+  "  id: \"hospital1\"\n"
+  "  component: \"/main/Map/hospital1.tilemap\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
@@ -39,8 +40,8 @@ embedded_instances {
   "  }\n"
   "}\n"
   "components {\n"
-  "  id: \"hospital1\"\n"
-  "  component: \"/main/Map/hospital1.tilemap\"\n"
+  "  id: \"Game\"\n"
+  "  component: \"/main/Game.script\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
@@ -57,6 +58,47 @@ embedded_instances {
   position {
     x: 0.0
     y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "Camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 45.0\\n"
+  "near_z: 0.1\\n"
+  "far_z: 1000.0\\n"
+  "auto_aspect_ratio: 0\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: -400.0
+    y: -300.0
     z: 0.0
   }
   rotation {
