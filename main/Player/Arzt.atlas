@@ -8,6 +8,54 @@ images {
 }
 animations {
   id: "Idle"
+  images {
+    image: "/assets/Arzt2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "Move_Up"
+  images {
+    image: "/assets/Arzt2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "Move_Down"
+  images {
+    image: "/assets/Arzt2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "Move_Left"
+  images {
+    image: "/assets/Arzt.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "Move_Right"
+  images {
+    image: "/assets/Arzt.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 60
   flip_horizontal: 0

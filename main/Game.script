@@ -1,10 +1,5 @@
 function init(self)
-	-- use the x and y component to track which screen is currently displayed.
-	self.screen_pos = vmath.vector3(0, 0, 0)
-	self.next_screen = nil
-	self.current_screen = nil
-	self.loading = false
-	self.dir = nil
+
 end
 
 function final(self)
