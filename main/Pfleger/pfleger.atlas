@@ -7,7 +7,11 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {
-  id: "New Animation"
+  id: "Idle"
+  images {
+    image: "/assets/Objects/Pfleger.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 60
   flip_horizontal: 0

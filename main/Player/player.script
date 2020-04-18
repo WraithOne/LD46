@@ -1,6 +1,6 @@
 
 -- Movement speed in Pixel
-local speed = 100
+local speed = 200
 
 function init(self)
 	-- Get Input focus
