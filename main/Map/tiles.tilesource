@@ -1027,27 +1027,27 @@ convex_hulls {
 }
 convex_hulls {
   index: 816
-  count: 4
+  count: 0
   collision_group: "Collision "
 }
 convex_hulls {
-  index: 820
-  count: 4
+  index: 816
+  count: 5
   collision_group: "Collision "
 }
 convex_hulls {
-  index: 824
-  count: 4
+  index: 821
+  count: 5
   collision_group: "Collision "
 }
 convex_hulls {
-  index: 828
-  count: 4
+  index: 826
+  count: 5
   collision_group: "Collision "
 }
 convex_hulls {
-  index: 832
-  count: 4
+  index: 831
+  count: 5
   collision_group: "Collision "
 }
 convex_hulls {
