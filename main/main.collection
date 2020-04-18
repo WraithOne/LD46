@@ -6,7 +6,7 @@ instances {
   position {
     x: 481.0
     y: 320.0
-    z: 0.1
+    z: 0.2
   }
   rotation {
     x: 0.0
@@ -44,9 +44,9 @@ instances {
   id: "rtw"
   prototype: "/main/RTW/rtw.go"
   position {
-    x: 649.0
-    y: 318.0
-    z: 0.1
+    x: 650.0
+    y: 445.0
+    z: 0.2
   }
   rotation {
     x: 0.0

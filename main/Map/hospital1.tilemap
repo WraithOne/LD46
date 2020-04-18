@@ -12186,7 +12186,7 @@ layers {
 }
 layers {
   id: "Walls"
-  z: 1.0
+  z: 0.1
   is_visible: 1
   cell {
     x: 0
@@ -13323,6 +13323,34 @@ layers {
     v_flip: 0
   }
   cell {
+    x: 19
+    y: 9
+    tile: 327
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 20
+    y: 9
+    tile: 328
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: -16
+    y: 9
+    tile: 325
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: -15
+    y: 9
+    tile: 326
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
     x: -12
     y: 9
     tile: 204
@@ -13515,6 +13543,34 @@ layers {
     x: 15
     y: 10
     tile: 204
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 19
+    y: 10
+    tile: 302
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 20
+    y: 10
+    tile: 303
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: -16
+    y: 10
+    tile: 300
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: -15
+    y: 10
+    tile: 301
     h_flip: 0
     v_flip: 0
   }
@@ -13725,6 +13781,34 @@ layers {
     x: 18
     y: 11
     tile: 151
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 19
+    y: 11
+    tile: 277
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 20
+    y: 11
+    tile: 278
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: -16
+    y: 11
+    tile: 275
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: -15
+    y: 11
+    tile: 276
     h_flip: 0
     v_flip: 0
   }
