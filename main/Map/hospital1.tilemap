@@ -5984,14 +5984,14 @@ layers {
   cell {
     x: -10
     y: 8
-    tile: 6
+    tile: 9
     h_flip: 0
     v_flip: 0
   }
   cell {
     x: -9
     y: 8
-    tile: 6
+    tile: 9
     h_flip: 0
     v_flip: 0
   }
@@ -8775,7 +8775,7 @@ layers {
   cell {
     x: -12
     y: 11
-    tile: 230
+    tile: 232
     h_flip: 0
     v_flip: 0
   }
