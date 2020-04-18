@@ -3,8 +3,8 @@ instances {
   id: "Player"
   prototype: "/main/Player/Player.go"
   position {
-    x: 217.0
-    y: 236.0
+    x: 554.0
+    y: 499.0
     z: 0.0
   }
   rotation {
@@ -42,8 +42,8 @@ embedded_instances {
   "  id: \"hospital1\"\n"
   "  component: \"/main/Map/hospital1.tilemap\"\n"
   "  position {\n"
-  "    x: -120.0\n"
-  "    y: -90.0\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
   "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
