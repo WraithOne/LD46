@@ -15,3 +15,6 @@ input_method = HiddenInputField
 [project]
 title = LD46
 
+[input]
+game_binding = /Input/game.input_bindingc
+

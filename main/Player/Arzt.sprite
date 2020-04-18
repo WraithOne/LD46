@@ -1,4 +1,4 @@
-tile_set: "/builtins/graphics/particle_blob.tilesource"
-default_animation: "anim"
+tile_set: "/main/Player/Arzt.atlas"
+default_animation: "Arzt"
 material: "/builtins/materials/sprite.material"
 blend_mode: BLEND_MODE_ALPHA
