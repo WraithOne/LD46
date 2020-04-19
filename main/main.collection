@@ -4,7 +4,7 @@ instances {
   prototype: "/main/Player/player.go"
   children: "camera"
   position {
-    x: 63.0
+    x: 288.0
     y: 320.0
     z: 0.2
   }
@@ -67,7 +67,7 @@ embedded_instances {
   children: "pfleger"
   children: "player"
   data: "components {\n"
-  "  id: \"game\"\n"
+  "  id: \"script\"\n"
   "  component: \"/main/game.script\"\n"
   "  position {\n"
   "    x: 0.0\n"

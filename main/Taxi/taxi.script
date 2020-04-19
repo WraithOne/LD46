@@ -15,7 +15,14 @@ function init(self)
 	-- Activate collision
 	msg.post("#collider", "enable")
 
+	-- Tell the instande ID
+	local params = {id = go.get_id()}
+	msg.post("/game#script", "taxi_id", params)
+
+	-- Taxi status
 	taxi_status = 1
+
+	-- Place on spawn
 	go.set_position(taxi_spawn)
 
 	-- Drive down
@@ -29,9 +36,10 @@ function update(self, dt)
 		if position.y >= taxi_wait.y then
 			taxi_status = 2
 		end
-	elseif rtw_status == 3 then
+	elseif taxi_status == 3 then
 		if position.y >= taxi_leave.y then
 			go.delete()
+			msg.post("/game#script", "taxi_leaved")
 		end
 	end
 
@@ -40,15 +48,15 @@ function update(self, dt)
 		go.set_position(position + taxi_dir * taxi_speed * dt)
 	elseif taxi_status == 2 then
 		-- Wait for message to leave
-	elseif taxi_satus == 3 then
+	elseif taxi_status == 3 then
 		go.set_position(position + taxi_dir * taxi_speed * dt)
 	end
 end
 
 function on_message(self, message_id, message, sender)
-	if rtw_status == 2 then
+	if taxi_status == 2 then
 		if message_id == hash("taxi_leave") then
-			rtw_status = 3
+			taxi_status = 3
 		end
 	end
 end

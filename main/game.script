@@ -1,3 +1,8 @@
+local taxi_count = 0
+local rtw_count = 0
+local taxi_id = ""
+local rtw_id = ""
+
 function init(self)
 	-- Get Input focus
 	msg.post(".", "acquire_input_focus")
@@ -14,8 +19,18 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+
+	-- Taxi and RTW
+	if message_id == hash("taxi_id") then
+		taxi_id = message.id
+	elseif message_id == hash("rtw_id") then
+		rtw_id = message.id
+	elseif message_id == hash("rtw_leaved") then
+		rtw_count = 0
+	elseif message_id == hash("taxi_leaved") then
+		taxi_count = 0
+	end
+	-- Taxi and RTW
 end
 
 function on_input(self, action_id, action)
@@ -28,10 +43,19 @@ function on_input(self, action_id, action)
 	elseif action_id == hash("move_right") then
 		msg.post("/player#script", "player_move_right")
 	elseif action_id == hash("spawn_taxi") then
-		factory.create("#taxi")
+		if taxi_count == 0 then
+			factory.create("#taxi")
+			taxi_count = 1
+		end
 	elseif action_id == hash("spawn_rtw") then
-		factory.create("#rtw")
-		
+		if rtw_count == 0 then
+			factory.create("#rtw")
+			rtw_count = 1
+		end	
+	elseif action_id == hash("leave_taxi") then
+		msg.post(taxi_id, "taxi_leave")
+	elseif action_id == hash("leave_rtw") then
+		msg.post(rtw_id, "rtw_leave")
 	end
 end
 

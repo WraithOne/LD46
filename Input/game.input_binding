@@ -26,3 +26,11 @@ key_trigger {
   input: KEY_F2
   action: "spawn_rtw"
 }
+key_trigger {
+  input: KEY_F3
+  action: "leave_taxi"
+}
+key_trigger {
+  input: KEY_F4
+  action: "leave_rtw"
+}

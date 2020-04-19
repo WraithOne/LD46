@@ -14,8 +14,15 @@ local rtw_leave = vmath.vector3(651, -209, 0.2)
 function init(self)
 	-- Activate collision
 	msg.post("#collider", "enable")
-	
+
+	-- Tell the instande ID
+	local params = {id = go.get_id()}
+	msg.post("/game#script", "rtw_id", params)
+
+	-- Taxi status
 	rtw_status = 1
+
+	-- Place on spawn
 	go.set_position(rtw_spawn)
 
 	-- Drive up
@@ -32,6 +39,7 @@ function update(self, dt)
 	elseif rtw_status == 3 then
 		if position.y <= rtw_leave.y then
 			go.delete()
+			msg.post("/game#script", "rtw_leaved")
 		end
 	end
 
@@ -40,7 +48,7 @@ function update(self, dt)
 		go.set_position(position + rtw_dir * rtw_speed * dt)
 	elseif rtw_status == 2 then
 		-- Wait for message to leave
-	elseif rtw_satus == 3 then
+	elseif rtw_status == 3 then
 		go.set_position(position + rtw_dir * rtw_speed * dt)
 	end
 end
