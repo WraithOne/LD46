@@ -1,5 +1,3 @@
-local tiles = {}
-local WALL = 44
 
 local function make_path()
 
