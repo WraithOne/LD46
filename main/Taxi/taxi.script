@@ -1,29 +1,54 @@
-function init(self)
-	-- Add initialization code here
-	-- Remove this function if not needed
-end
+-- Taxi movement speed
+local taxi_speed = 100
+-- Taxi view direction
+local taxi_dir = vmath.vector3()
 
-function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
+-- Taxi status
+local taxi_status = {"taxi_status_drive", "taxi_status_wait", "taxi_status_leave"}
+
+-- Taxi waypoints
+local taxi_spawn = vmath.vector3(651, 848, 0.1)
+local taxi_wait = vmath.vector3(651, 318, 0.1)
+local taxi_leave = vmath.vector3(651, -209, 0.1)
+
+function init(self)
+	-- Activate collision
+	msg.post("#collider", "enable")
+
+	rtw_status = "taxi_status_drive"
+	go.set_position(taxi_spawn)
+
+	-- Drive down
+	taxi_dir.y = -1
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	local position = go.get_position()
+
+	if taxi_status == "taxi_status_drive" then
+		if position.y >= taxi_wait.y then
+			taxi_status = "taxi_status_wait"
+		end
+	elseif rtw_status == "taxi_status_leave"then
+		if position.y >= taxi_leave.y then
+			go.delete()
+		end
+	end
+
+
+	if taxi_status == "taxi_status_drive" then
+		go.set_position(p + taxi_dir * speed * dt)
+	elseif taxi_status == "taxi_status_wait" then
+		-- Wait for message to leave
+	elseif taxi_satus == "taxi_status_leave" then
+		go.set_position(p + taxi_dir * speed * dt)
+	end
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
-end
-
-function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Remove this function if not needed
+	if rtw_status == "taxi_status_wait" then
+		if message_id == hash("taxi_leave") then
+			rtw_status = "taxi_status_leave"
+		end
+	end
 end

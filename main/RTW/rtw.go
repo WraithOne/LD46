@@ -14,7 +14,7 @@ components {
   }
 }
 embedded_components {
-  id: "collisionobject"
+  id: "collider"
   type: "collisionobject"
   data: "collision_shape: \"\"\n"
   "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"

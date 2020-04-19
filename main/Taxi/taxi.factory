@@ -1,0 +1,2 @@
+prototype: "/main/Taxi/taxi.go"
+load_dynamically: false

@@ -14,3 +14,15 @@ key_trigger {
   input: KEY_D
   action: "move_right"
 }
+key_trigger {
+  input: KEY_SPACE
+  action: "use"
+}
+key_trigger {
+  input: KEY_F1
+  action: "spawn_taxi"
+}
+key_trigger {
+  input: KEY_F2
+  action: "spawn_rtw"
+}

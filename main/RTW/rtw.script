@@ -1,25 +1,54 @@
--- Taxi movement speed
+-- RTW movement speed
 local rtw_speed = 100
+-- RTW view direction
+local rtw_dir = vmath.vector3()
 
--- Taxi status
-local rtw_status = {"drive", "wait", "leave"}
+-- RTW status
+local rtw_status = {"rtw_status_drive", "rtw_status_wait", "rtw_status_leave"}
 
--- Taxi waypoints
+-- RTW waypoints
 local rtw_spawn = vmath.vector3(651, 848, 0.1)
 local rtw_wait = vmath.vector3(651, 318, 0.1)
 local rtw_leave = vmath.vector3(651, -209, 0.1)
 
 function init(self)
-	rtw_status = "drive"
+	-- Activate collision
+	msg.post("#collider", "enable")
+	
+	rtw_status = "rtw_status_drive"
 	go.set_position(rtw_spawn)
+
+	-- Drive up
+	rtw_dir.y = 1
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	local position = go.get_position()
+
+	if rtw_status == "rtw_status_drive" then
+		if position.y <= rtw_wait.y then
+			rtw_status = "rtw_status_wait"
+		end
+	elseif rtw_status == "rtw_status_leave"then
+		if position.y <= rtw_leave.y then
+			go.delete()
+		end
+	end
+
+	
+	if rtw_status == "rtw_status_drive" then
+		go.set_position(p + rtw_dir * speed * dt)
+	elseif rtw_status == "rtw_status_wait" then
+		-- Wait for message to leave
+	elseif rtw_satus == "rtw_status_leave" then
+		go.set_position(p + rtw_dir * speed * dt)
+	end
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+	if rtw_status == "rtw_status_wait" then
+		if message_id == hash("rtw_leave") then
+			rtw_status = "rtw_status_leave"
+		end
+	end
 end
