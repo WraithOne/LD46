@@ -4,8 +4,8 @@ instances {
   prototype: "/main/Player/player.go"
   children: "camera"
   position {
-    x: 512.0
-    y: 320.0
+    x: 732.0
+    y: 512.0
     z: 0.2
   }
   rotation {
@@ -69,6 +69,36 @@ embedded_instances {
   data: "components {\n"
   "  id: \"game\"\n"
   "  component: \"/main/game.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"taxi\"\n"
+  "  component: \"/main/Taxi/taxi.factory\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"rtw\"\n"
+  "  component: \"/main/RTW/rtw.factory\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"

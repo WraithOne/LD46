@@ -1,5 +1,5 @@
 components {
-  id: "Pfleger"
+  id: "script"
   component: "/main/Pfleger/pfleger.script"
   position {
     x: 0.0

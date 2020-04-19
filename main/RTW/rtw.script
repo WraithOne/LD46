@@ -4,51 +4,51 @@ local rtw_speed = 100
 local rtw_dir = vmath.vector3()
 
 -- RTW status
-local rtw_status = {"rtw_status_drive", "rtw_status_wait", "rtw_status_leave"}
+local rtw_status = 0 -- 1: Drive 2:Wait 3:Leave
 
 -- RTW waypoints
-local rtw_spawn = vmath.vector3(651, 848, 0.1)
-local rtw_wait = vmath.vector3(651, 318, 0.1)
-local rtw_leave = vmath.vector3(651, -209, 0.1)
+local rtw_spawn = vmath.vector3(651, 848, 0.2)
+local rtw_wait = vmath.vector3(651, 316, 0.2)
+local rtw_leave = vmath.vector3(651, -209, 0.2)
 
 function init(self)
 	-- Activate collision
 	msg.post("#collider", "enable")
 	
-	rtw_status = "rtw_status_drive"
+	rtw_status = 1
 	go.set_position(rtw_spawn)
 
 	-- Drive up
-	rtw_dir.y = 1
+	rtw_dir.y = -1
 end
 
 function update(self, dt)
 	local position = go.get_position()
 
-	if rtw_status == "rtw_status_drive" then
+	if rtw_status == 1 then
 		if position.y <= rtw_wait.y then
-			rtw_status = "rtw_status_wait"
+			rtw_status = 2
 		end
-	elseif rtw_status == "rtw_status_leave"then
+	elseif rtw_status == 3 then
 		if position.y <= rtw_leave.y then
 			go.delete()
 		end
 	end
 
 	
-	if rtw_status == "rtw_status_drive" then
-		go.set_position(p + rtw_dir * speed * dt)
-	elseif rtw_status == "rtw_status_wait" then
+	if rtw_status == 1 then
+		go.set_position(position + rtw_dir * rtw_speed * dt)
+	elseif rtw_status == 2 then
 		-- Wait for message to leave
-	elseif rtw_satus == "rtw_status_leave" then
-		go.set_position(p + rtw_dir * speed * dt)
+	elseif rtw_satus == 3 then
+		go.set_position(position + rtw_dir * rtw_speed * dt)
 	end
 end
 
 function on_message(self, message_id, message, sender)
-	if rtw_status == "rtw_status_wait" then
+	if rtw_status == 2 then
 		if message_id == hash("rtw_leave") then
-			rtw_status = "rtw_status_leave"
+			rtw_status = 3
 		end
 	end
 end

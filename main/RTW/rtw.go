@@ -1,5 +1,5 @@
 components {
-  id: "rtw"
+  id: "script"
   component: "/main/RTW/rtw.script"
   position {
     x: 0.0

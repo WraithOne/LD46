@@ -4,51 +4,53 @@ local taxi_speed = 100
 local taxi_dir = vmath.vector3()
 
 -- Taxi status
-local taxi_status = {"taxi_status_drive", "taxi_status_wait", "taxi_status_leave"}
+local taxi_status = 0 -- 1: Drive 2:Wait 3:Leave
 
 -- Taxi waypoints
-local taxi_spawn = vmath.vector3(651, 848, 0.1)
-local taxi_wait = vmath.vector3(651, 318, 0.1)
-local taxi_leave = vmath.vector3(651, -209, 0.1)
+local taxi_leave = vmath.vector3(-490, 848, 0.2)
+local taxi_wait = vmath.vector3(-490, 318, 0.2)
+local taxi_spawn = vmath.vector3(-490, -209, 0.2)
 
 function init(self)
 	-- Activate collision
 	msg.post("#collider", "enable")
 
-	rtw_status = "taxi_status_drive"
+	taxi_status = 1
 	go.set_position(taxi_spawn)
 
 	-- Drive down
-	taxi_dir.y = -1
+	taxi_dir.y = 1
+
+	print("taxi on the way")
 end
 
 function update(self, dt)
 	local position = go.get_position()
 
-	if taxi_status == "taxi_status_drive" then
+	if taxi_status == 1 then
 		if position.y >= taxi_wait.y then
-			taxi_status = "taxi_status_wait"
+			taxi_status = 2
 		end
-	elseif rtw_status == "taxi_status_leave"then
+	elseif rtw_status == 3 then
 		if position.y >= taxi_leave.y then
 			go.delete()
 		end
 	end
 
 
-	if taxi_status == "taxi_status_drive" then
-		go.set_position(p + taxi_dir * speed * dt)
-	elseif taxi_status == "taxi_status_wait" then
+	if taxi_status == 1 then
+		go.set_position(position + taxi_dir * taxi_speed * dt)
+	elseif taxi_status == 2 then
 		-- Wait for message to leave
-	elseif taxi_satus == "taxi_status_leave" then
-		go.set_position(p + taxi_dir * speed * dt)
+	elseif taxi_satus == 3 then
+		go.set_position(position + taxi_dir * taxi_speed * dt)
 	end
 end
 
 function on_message(self, message_id, message, sender)
-	if rtw_status == "taxi_status_wait" then
+	if rtw_status == 2 then
 		if message_id == hash("taxi_leave") then
-			rtw_status = "taxi_status_leave"
+			rtw_status = 3
 		end
 	end
 end
