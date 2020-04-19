@@ -44,9 +44,29 @@ instances {
   id: "rtw"
   prototype: "/main/RTW/rtw.go"
   position {
-    x: 649.0
-    y: -212.0
+    x: 651.0
+    y: -209.0
     z: 0.2
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "taxi"
+  prototype: "/main/Taxi/taxi.go"
+  position {
+    x: -490.0
+    y: 849.0
+    z: 0.1
   }
   rotation {
     x: 0.0
@@ -66,6 +86,7 @@ embedded_instances {
   children: "map"
   children: "player"
   children: "rtw"
+  children: "taxi"
   data: ""
   position {
     x: 0.0
