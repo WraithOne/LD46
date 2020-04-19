@@ -10,9 +10,22 @@ local patient_status = 0
 function init(self)
 	-- Roll random visual combination
 	patient_combi = math.random(0,2)
+	local anim = hash("Idle")
+	if patient_combi == 0 then
+		anim = hash("combi1_hori")
+	elseif patient_combi == 1 then
+		anim = hash("combi2_hori")
+	elseif patient_combi == 2 then
+		anim = hash("combi3_hori")
+	end
+	msg.post("#sprite", "play_animation", { id = anim })
+	
 	--Roll random sickness
 	patient_sickness = math.random(0,2)
-	
+
+	-- Set random position
+	local p = vmath.vector3(math.random(-400, 480), math.random(-20, 430), 0.2)
+	go.set_position(p)
 end
 
 function update(self, dt)

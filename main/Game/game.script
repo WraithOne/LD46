@@ -3,6 +3,9 @@ local rtw_count = 0
 local taxi_id = ""
 local rtw_id = ""
 
+-- test key
+local clicked = 0
+
 function init(self)
 	-- Get Input focus
 	msg.post(".", "acquire_input_focus")
@@ -56,6 +59,14 @@ function on_input(self, action_id, action)
 		msg.post(taxi_id, "taxi_leave")
 	elseif action_id == hash("leave_rtw") then
 		msg.post(rtw_id, "rtw_leave")
+	elseif action_id == hash("click") then
+		if action.pressed and clicked == 0 then
+			factory.create("#patient")
+			clicked = 1
+		end
+		if action.released then
+			clicked = 0
+		end
 	end
 end
 
