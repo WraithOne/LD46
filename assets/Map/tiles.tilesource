@@ -1258,22 +1258,22 @@ convex_hulls {
 convex_hulls {
   index: 1013
   count: 6
-  collision_group: ""
+  collision_group: "blocker"
 }
 convex_hulls {
   index: 1019
   count: 5
-  collision_group: ""
+  collision_group: "blocker"
 }
 convex_hulls {
   index: 1024
   count: 10
-  collision_group: ""
+  collision_group: "blocker"
 }
 convex_hulls {
   index: 1034
   count: 7
-  collision_group: ""
+  collision_group: "blocker"
 }
 convex_hulls {
   index: 1041
