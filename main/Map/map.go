@@ -23,6 +23,7 @@ embedded_components {
   "restitution: 0.5\n"
   "group: \"blocker\"\n"
   "mask: \"player\"\n"
+  "mask: \"pfleger\"\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
   "locked_rotation: false\n"
