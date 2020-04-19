@@ -1,5 +1,7 @@
 function init(self)
-
+	-- Get Input focus
+	msg.post(".", "acquire_input_focus")
+	
 end
 
 function final(self)
@@ -17,8 +19,15 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+	if action_id == hash("move_down") then
+		msg.post("/player", "player_move_down")
+	elseif action_id == hash("move_up") then
+		msg.post("/player", "player_move_up")
+	elseif action_id == hash("move_left") then
+		msg.post("/player", "player_move_left")
+	elseif action_id == hash("move_right") then
+		msg.post("/player", "player_move_right")
+	end
 end
 
 function on_reload(self)

@@ -4,7 +4,7 @@ instances {
   prototype: "/main/Player/player.go"
   children: "camera"
   position {
-    x: 481.0
+    x: 512.0
     y: 320.0
     z: 0.2
   }
@@ -27,46 +27,6 @@ instances {
     x: 0.0
     y: 0.0
     z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "rtw"
-  prototype: "/main/RTW/rtw.go"
-  position {
-    x: 651.0
-    y: -209.0
-    z: 0.2
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "taxi"
-  prototype: "/main/Taxi/taxi.go"
-  position {
-    x: -490.0
-    y: 849.0
-    z: 0.1
   }
   rotation {
     x: 0.0
@@ -106,9 +66,22 @@ embedded_instances {
   children: "map"
   children: "pfleger"
   children: "player"
-  children: "rtw"
-  children: "taxi"
-  data: ""
+  data: "components {\n"
+  "  id: \"game\"\n"
+  "  component: \"/main/game.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
   position {
     x: 0.0
     y: 0.0
