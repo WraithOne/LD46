@@ -1,6 +1,18 @@
+-- Define the visual combination 0:Orange/Red 1:Green/Blond 2:Red/Black
+local patient_combi = 0
+
+-- Define the Sickness 0: 1: 2:
+local patient_sickness = 0
+
+-- Define Medical status 0: Sick 1: Cured
+local patient_status = 0 
+
 function init(self)
-	-- Add initialization code here
-	-- Remove this function if not needed
+	-- Roll random visual combination
+	patient_combi = math.random(0,2)
+	--Roll random sickness
+	patient_sickness = math.random(0,2)
+	
 end
 
 function update(self, dt)

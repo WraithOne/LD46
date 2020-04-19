@@ -1,51 +1,101 @@
 animations {
   id: "Idle"
   images {
-    image: "/assets/Patient/Kopfbl.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/Kopfbl2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
     image: "/assets/Patient/Kopfbr.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/Kopfbr2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/Kopfsw.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/Kopfsw2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/TShirtgr.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/TShirtgr2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
     image: "/assets/Patient/TShirtor.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi1_vert"
+  images {
+    image: "/assets/Patient/TShirtor.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/Kopfbr.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi1_hori"
   images {
     image: "/assets/Patient/TShirtor2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
+    image: "/assets/Patient/Kopfbr2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi2_vert"
+  images {
+    image: "/assets/Patient/TShirtgr.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/Kopfbl.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi2_hori"
+  images {
+    image: "/assets/Patient/TShirtgr2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/Kopfbl2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi3_vert"
+  images {
     image: "/assets/Patient/TShirtrt.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
+    image: "/assets/Patient/Kopfsw.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi3_hori"
+  images {
     image: "/assets/Patient/TShirtrt2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/Kopfsw2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
