@@ -25,14 +25,26 @@ function final(self)
 end
 
 function update(self, dt)
+	local movedir = math.random(0, 3)
+	
+	if movedir == 0 then
+		self.dir.y = -1
+	elseif movedir == 1 then
+		self.dir.y = 1
+	elseif movedir == 2 then
+		self.dir.x = -1
+	elseif movedir == 3 then
+		self.dir.x = 1
+	end
+	
 	if vmath.length_sqr(self.dir) > 1 then
 		self.dir = vmath.normalize(self.dir)
 	end
+	
 	local p = go.get_position()
 	go.set_position(p + self.dir * speed * dt)
 
-	-- animate the astronaut
-
+	-- animate the plfeger
 	local anim = hash("idle")
 
 	if self.dir.x > 0 then
