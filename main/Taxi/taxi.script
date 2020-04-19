@@ -8,7 +8,7 @@ local taxi_status = 0 -- 1: Drive 2:Wait 3:Leave
 
 -- Taxi waypoints
 local taxi_leave = vmath.vector3(-490, 848, 0.2)
-local taxi_wait = vmath.vector3(-490, 318, 0.2)
+local taxi_wait = vmath.vector3(-490, 322, 0.2)
 local taxi_spawn = vmath.vector3(-490, -209, 0.2)
 
 function init(self)
@@ -20,8 +20,6 @@ function init(self)
 
 	-- Drive down
 	taxi_dir.y = 1
-
-	print("taxi on the way")
 end
 
 function update(self, dt)

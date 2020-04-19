@@ -2,6 +2,9 @@
 -- Movement speed in Pixel
 local speed = 200
 
+-- Add variable for view direction
+local dir = vmath.vector3()
+
 function init(self)
 	-- Activate collision
 	msg.post("#collider", "enable")
@@ -9,8 +12,7 @@ function init(self)
 	-- Get Camera focus
 	msg.post("/camera#camera", "acquire_camera_focus")
 	
-	-- Add variable for view direction
-	self.dir = vmath.vector3()
+	
 
 	--Add variable for animation
 	self.current_anim = nil
@@ -20,23 +22,23 @@ function init(self)
 end
 
 function update(self, dt)
-	if vmath.length_sqr(self.dir) > 1 then
-		self.dir = vmath.normalize(self.dir)
+	if vmath.length_sqr(dir) > 1 then
+		dir = vmath.normalize(dir)
 	end
 	local p = go.get_position()
-	go.set_position(p + self.dir * speed * dt)
+	go.set_position(p + dir * speed * dt)
 
 		-- animate the astronaut
 
 		local anim = hash("Idle")
 
-		if self.dir.x > 0 then
+		if dir.x > 0 then
 			anim = hash("Move_Right")
-		elseif self.dir.x < 0 then
+		elseif dir.x < 0 then
 			anim = hash("Move_Left")
-		elseif self.dir.y > 0 then
+		elseif dir.y > 0 then
 			anim = hash("Move_Up")
-		elseif self.dir.y < 0 then
+		elseif dir.y < 0 then
 			anim = hash("Move_Down")
 		end
 
@@ -46,24 +48,22 @@ function update(self, dt)
 		end
 
 		-- done animating
-		self.dir = vmath.vector3()
+		dir = vmath.vector3()
 
 		-- reset correction
 		self.correction = vmath.vector3()
 end
 
 function on_message(self, message_id, message, sender)
-	print (message_id)
-	
 	--Handle movement
-	if massage_id == hash("player_move_up") then
-		self.dir.y = 1
-	elseif massage_id == hash("player_move_down") then
-		self.dir.y = -1
-	elseif massage_id == hash("player_move_left") then
-		self.dir.x = -1
-	elseif massage_id == hash("player_move_right") then
-		self.dir.x = 1
+	if message_id == hash("player_move_up") then
+		dir.y = 1
+	elseif message_id == hash("player_move_down") then
+		dir.y = -1
+	elseif message_id == hash("player_move_left") then
+		dir.x = -1
+	elseif message_id == hash("player_move_right") then
+		dir.x = 1
 	end
 	
 	-- Handle collision

@@ -20,13 +20,13 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("move_down") then
-		msg.post("/player", "player_move_down")
+		msg.post("/player#script", "player_move_down")
 	elseif action_id == hash("move_up") then
-		msg.post("/player", "player_move_up")
+		msg.post("/player#script", "player_move_up")
 	elseif action_id == hash("move_left") then
-		msg.post("/player", "player_move_left")
+		msg.post("/player#script", "player_move_left")
 	elseif action_id == hash("move_right") then
-		msg.post("/player", "player_move_right")
+		msg.post("/player#script", "player_move_right")
 	elseif action_id == hash("spawn_taxi") then
 		factory.create("#taxi")
 	elseif action_id == hash("spawn_rtw") then

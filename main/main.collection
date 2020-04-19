@@ -4,8 +4,8 @@ instances {
   prototype: "/main/Player/player.go"
   children: "camera"
   position {
-    x: 732.0
-    y: 512.0
+    x: 63.0
+    y: 320.0
     z: 0.2
   }
   rotation {
