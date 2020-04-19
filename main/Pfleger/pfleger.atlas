@@ -1,15 +1,15 @@
 images {
-  image: "/assets/Objects/Pfleger.png"
+  image: "/assets/Pfleger/Pfleger.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/Objects/Pfleger2.png"
+  image: "/assets/Pfleger/Pfleger2.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {
   id: "idle"
   images {
-    image: "/assets/Objects/Pfleger.png"
+    image: "/assets/Pfleger/Pfleger.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -20,7 +20,7 @@ animations {
 animations {
   id: "move_up"
   images {
-    image: "/assets/Objects/Pfleger.png"
+    image: "/assets/Pfleger/Pfleger.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -31,7 +31,7 @@ animations {
 animations {
   id: "move_down"
   images {
-    image: "/assets/Objects/Pfleger.png"
+    image: "/assets/Pfleger/Pfleger.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -42,7 +42,7 @@ animations {
 animations {
   id: "move_left"
   images {
-    image: "/assets/Objects/Pfleger2.png"
+    image: "/assets/Pfleger/Pfleger2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -53,7 +53,7 @@ animations {
 animations {
   id: "move_right"
   images {
-    image: "/assets/Objects/Pfleger2.png"
+    image: "/assets/Pfleger/Pfleger2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD

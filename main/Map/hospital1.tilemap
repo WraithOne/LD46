@@ -14235,28 +14235,28 @@ layers {
   cell {
     x: 19
     y: 11
-    tile: 204
+    tile: 252
     h_flip: 0
     v_flip: 0
   }
   cell {
     x: 20
     y: 11
-    tile: 204
+    tile: 253
     h_flip: 0
     v_flip: 0
   }
   cell {
     x: -16
     y: 11
-    tile: 204
+    tile: 250
     h_flip: 0
     v_flip: 0
   }
   cell {
     x: -15
     y: 11
-    tile: 204
+    tile: 251
     h_flip: 0
     v_flip: 0
   }
