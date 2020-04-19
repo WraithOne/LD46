@@ -1,3 +1,13 @@
+local tiles = {}
+local WALL = 44
+
+local function make_path()
+
+
+end
+
+
+
 function init(self)
 	-- Add initialization code here
 	-- Remove this function if not needed
