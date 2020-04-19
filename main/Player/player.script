@@ -5,7 +5,11 @@ local speed = 200
 function init(self)
 	-- Get Input focus
 	msg.post(".", "acquire_input_focus")
+
+	-- Activate collision
 	msg.post("#collider", "enable")
+
+	-- Get Camera focus
 	msg.post("/camera#camera", "acquire_camera_focus")
 	
 	-- Add variable for view direction
