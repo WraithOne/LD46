@@ -32,7 +32,7 @@ embedded_components {
   id: "sprite"
   type: "sprite"
   data: "tile_set: \"/main/Patient/patient.atlas\"\n"
-  "default_animation: \"tshirtgrbl\"\n"
+  "default_animation: \"combi1_vert\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

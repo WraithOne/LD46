@@ -30,17 +30,17 @@ local patient_high_wp_r2 = vmath.vector3(304, 336, 0.2)
 local patient_high_wp_r3 = vmath.vector3(144, 336, 0.2)
 
 -- Bed´s
-local patient_low_bed_r1 = vmath.vector3(651, 237, 0.2)
-local patient_low_bed_r2 = vmath.vector3(651, 237, 0.2)
-local patient_low_bed_r3 = vmath.vector3(651, 237, 0.2)
+local patient_low_bed_r1 = vmath.vector3(241, 237, 0.2)
+local patient_low_bed_r2 = vmath.vector3(80, 237, 0.2)
+local patient_low_bed_r3 = vmath.vector3(-79, 237, 0.2)
 
-local patient_medium_bed_r1 = vmath.vector3(651, 463, 0.2)
-local patient_medium_bed_r2 = vmath.vector3(651, 463, 0.2)
-local patient_medium_bed_r3 = vmath.vector3(651, 463, 0.2)
+local patient_medium_bed_r1 = vmath.vector3(-48, 463, 0.2)
+local patient_medium_bed_r2 = vmath.vector3(-208, 463, 0.2)
+local patient_medium_bed_r3 = vmath.vector3(-369, 463, 0.2)
 
-local patient_high_bed_r1 = vmath.vector3(651, 463, 0.2)
-local patient_high_bed_r2 = vmath.vector3(651, 463, 0.2)
-local patient_high_bed_r3 = vmath.vector3(651, 463, 0.2)
+local patient_high_bed_r1 = vmath.vector3(432, 463, 0.2)
+local patient_high_bed_r2 = vmath.vector3(272, 463, 0.2)
+local patient_high_bed_r3 = vmath.vector3(112, 463, 0.2)
 
 -- Leave spot
 local patient_low_leave = vmath.vector3(-433, 305, 0.2)
@@ -66,42 +66,42 @@ local animation_wating = hash("_hor")
 
 function init(self)
 	-- Roll random visual combination
-	patient_combi = math.random(0,8)
+	patient_combi = math.random(1,9)
 
 	-- Animation
-	if patient_combi = 1 then
-		animation_walking = hash(combi1"_vert")
+	if patient_combi == 1 then
+		animation_walking = hash("combi1_vert")
 		animation_bed = hash("combi1_bed")
 		animation_waiting = hash("combi1_hor")
-	elseif patient_combi = 2 then
+	elseif patient_combi == 2 then
 		animation_walking = hash("combi2_vert")
 		animation_bed = hash("combi2_bed")
 		animation_waiting = hash("combi2_hor")
-	elseif patient_combi = 3 then
+	elseif patient_combi == 3 then
 		animation_walking = hash("combi3_vert")
 		animation_bed = hash("combi3_bed")
 		animation_waiting = hash("combi3_hor")
-	elseif patient_combi = 4 then
+	elseif patient_combi == 4 then
 		animation_walking = hash("combi4_vert")
 		animation_bed = hash("combi4_bed")
 		animation_waiting = hash("combi4_hor")
-	elseif patient_combi = 5 then
+	elseif patient_combi == 5 then
 		animation_walking = hash("combi5_vert")
 		animation_bed = hash("combi5_bed")
-		animation_waiting = hash(combi5"_hor")
-	elseif patient_combi = 6 then
+		animation_waiting = hash("combi5_hor")
+	elseif patient_combi == 6 then
 		animation_walking = hash("combi6_vert")
 		animation_bed = hash("combi6_bed")
 		animation_waiting = hash("combi6_hor")
-	elseif patient_combi = 7 then
+	elseif patient_combi == 7 then
 		animation_walking = hash("combi7_vert")
 		animation_bed = hash("combi7_bed")
 		animation_waiting = hash("combi7_hor")
-	elseif patient_combi = 8 then
+	elseif patient_combi == 8 then
 		animation_walking = hash("combi8_vert")
 		animation_bed = hash("combi8_bed")
 		animation_waiting = hash("combi8_hor")
-	elseif patient_combi = 9 then
+	elseif patient_combi == 9 then
 		animation_walking = hash("combi9_vert")
 		animation_bed = hash("combi9_bed")
 		animation_waiting = hash("combi9_hor")
@@ -111,6 +111,9 @@ function init(self)
 	--Roll random sickness
 	patient_sickness = math.random(0,2)
 
+	--Roll random room todo: remove
+	patient_room = math.random(1, 3)
+	
 	-- Set move direction
 	move_dir.x = -1
 
