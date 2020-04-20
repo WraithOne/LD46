@@ -21,3 +21,6 @@ game_binding = /Input/game.input_bindingc
 [tilemap]
 max_tile_count = 3072
 
+[windows]
+app_icon = /assets/Objects/LD46.ico
+
