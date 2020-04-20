@@ -14,28 +14,17 @@ animations {
   flip_vertical: 0
 }
 animations {
-  id: "combi1_vert"
+  id: "tshirtgrbl"
   images {
-    image: "/assets/Patient/TShirtor.png"
+    image: "/assets/Patient/TShirtgrbl.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/Patient/Kopfbr.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 60
-  flip_horizontal: 0
-  flip_vertical: 0
-}
-animations {
-  id: "combi1_hori"
-  images {
-    image: "/assets/Patient/TShirtor2.png"
+    image: "/assets/Patient/TShirtgrbl2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/Patient/Kopfbr2.png"
+    image: "/assets/Patient/TShirtgrbl3.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -44,28 +33,17 @@ animations {
   flip_vertical: 0
 }
 animations {
-  id: "combi2_vert"
+  id: "tshirtgbr"
   images {
-    image: "/assets/Patient/TShirtgr.png"
+    image: "/assets/Patient/TShirtgrbr.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/Patient/Kopfbl.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 60
-  flip_horizontal: 0
-  flip_vertical: 0
-}
-animations {
-  id: "combi2_hori"
-  images {
-    image: "/assets/Patient/TShirtgr2.png"
+    image: "/assets/Patient/TShirtgrbr2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/Patient/Kopfbl2.png"
+    image: "/assets/Patient/TShirtgrbr3.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -74,13 +52,17 @@ animations {
   flip_vertical: 0
 }
 animations {
-  id: "combi3_vert"
+  id: "tshirtgrsw"
   images {
-    image: "/assets/Patient/TShirtrt.png"
+    image: "/assets/Patient/TShirtgrsw.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/Patient/Kopfsw.png"
+    image: "/assets/Patient/TShirtgrsw2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtgrsw3.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
@@ -89,13 +71,112 @@ animations {
   flip_vertical: 0
 }
 animations {
-  id: "combi3_hori"
+  id: "tshirtorbl"
   images {
-    image: "/assets/Patient/TShirtrt2.png"
+    image: "/assets/Patient/TShirtorbl.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/Patient/Kopfsw2.png"
+    image: "/assets/Patient/TShirtorbl2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtorbl3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tshirtorbr"
+  images {
+    image: "/assets/Patient/TShirtorbr.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtorbr2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtorbr3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tshirtsw"
+  images {
+    image: "/assets/Patient/TShirtorsw.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtorsw2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtorsw3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tshirtrtbl"
+  images {
+    image: "/assets/Patient/TShirtrtbl.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtrtbl2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtrtbl3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tshirtrtbr"
+  images {
+    image: "/assets/Patient/TShirtrtbr.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtrtbr2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtrtbr3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tshirtrtsw"
+  images {
+    image: "/assets/Patient/TShirtrtsw.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtrtsw2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/Patient/TShirtrtsw3.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
