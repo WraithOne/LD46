@@ -4,7 +4,7 @@ instances {
   prototype: "/main/Player/player.go"
   children: "camera"
   position {
-    x: 288.0
+    x: 193.0
     y: 320.0
     z: 0.2
   }

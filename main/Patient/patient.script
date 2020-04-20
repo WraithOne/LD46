@@ -7,6 +7,40 @@ local patient_sickness = 0
 -- Define Medical status 0: Sick 1: Cured
 local patient_status = 0 
 
+-- Spawns and waypoints
+local patient_low_spawn = vmath.vector3(592, 305, 0.2)
+local patient_low_wp_r1 = vmath.vector3(176, 305, 0.2)
+local patient_low_wp_r2 = vmath.vector3(16, 305, 0.2)
+local patient_low_wp_r3 = vmath.vector3(-144, 305, 0.2)
+
+local patient_medium_spawn = vmath.vector3(592, 336, 0.2)
+local patient_medium_wp_r1 = vmath.vector3(16, 336, 0.2)
+local patient_medium_wp_r2 = vmath.vector3(-144, 336, 0.2)
+local patient_medium_wp_r3 = vmath.vector3(-305, 336, 0.2)
+
+local patient_high_spawn = vmath.vector3(592, 336, 0.2)
+local patient_high_wp_r1 = vmath.vector3(464, 336, 0.2)
+local patient_high_wp_r2 = vmath.vector3(304, 336, 0.2)
+local patient_high_wp_r3 = vmath.vector3(144, 336, 0.2)
+
+-- Bed´s
+local patient_low_bed_r1 = vmath.vector3(651, 237, 0.2)
+local patient_low_bed_r2 = vmath.vector3(651, 237, 0.2)
+local patient_low_bed_r3 = vmath.vector3(651, 237, 0.2)
+
+local patient_medium_bed_r1 = vmath.vector3(651, 463, 0.2)
+local patient_medium_bed_r2 = vmath.vector3(651, 463, 0.2)
+local patient_medium_bed_r3 = vmath.vector3(651, 463, 0.2)
+
+local patient_high_bed_r1 = vmath.vector3(651, 463, 0.2)
+local patient_high_bed_r2 = vmath.vector3(651, 463, 0.2)
+local patient_high_bed_r3 = vmath.vector3(651, 463, 0.2)
+
+-- Leave spot
+local patient_low_leave = vmath.vector3(-433, 305, 0.2)
+local patient_medium_leave = vmath.vector3(-433, 336, 0.2)
+local patient_high_leave = vmath.vector3(-433, 336, 0.2)
+
 function init(self)
 	-- Roll random visual combination
 	patient_combi = math.random(0,2)
