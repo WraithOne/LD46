@@ -1,19 +1,4 @@
 animations {
-  id: "Idle"
-  images {
-    image: "/assets/Patient/Kopfbr.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/TShirtor.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 60
-  flip_horizontal: 0
-  flip_vertical: 0
-}
-animations {
   id: "tshirtgrbl"
   images {
     image: "/assets/Patient/TShirtgrbl.png"
