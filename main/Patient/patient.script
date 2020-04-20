@@ -38,32 +38,6 @@ local move_dir = vmath.vector3()
 -- Move speed
 local move_speed = 100
 
--- Define the visual combination 0:Orange/Red 1:Green/Blond 2:Red/Black
---local self.patient_combi = 0
-
--- Define the Sickness 0: low 1: medium 2: high
---local self.patient_sickness = 0
-
--- Define Room 1/2/3
---local self.patient_room = 0
-
--- Define Medical status 0: Sick 1: Cured 2: Dead
---local self.patient_medical_status = 0 
-
--- Define status 0: Arriving 1: In bed 2: Leaving 3:Waiting for pickup
---local self.patient_status = 0
-
--- Animations
---local self.animation_walking = hash("_vert")
---local self.animation_bed = hash("_bed")
---local self.animation_wating = hash("_hor")
-
--- Points for spawned instance
---local self.instance_spawn = vmath.vector3()
---local self.instance_wp = vmath.vector3()
---local self.instance_bed = vmath.vector3()
---local self.instance_leave = vmath.vector3()
-
 function init(self)
 	-- Roll random visual combination
 	local combi = math.random(1,9)
@@ -165,7 +139,7 @@ function init(self)
 			self.instance_bed = patient_high_bed_r2
 		elseif room == 3 then
 			self.instance_wp = patient_high_wp_r3
-			self.instance_bed = patient_high_bed_r2 
+			self.instance_bed = patient_high_bed_r3 
 		end
 		self.instance_leave = patient_high_leave
 	end
