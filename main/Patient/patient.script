@@ -57,19 +57,56 @@ local instance_leave = vmath.vector3()
 local move_dir = vmath.vector3()
 
 -- Move speed
-move speed = 100
+local move_speed = 100
 
 -- Animations
-local animation_arriving = hash("Arriving")
-local animation_bed = hash("inBed")
-local animation = hash("leaving")
+local animation_walking = hash("_vert")
+local animation_bed = hash("_bed")
+local animation_wating = hash("_hor")
 
 function init(self)
 	-- Roll random visual combination
 	patient_combi = math.random(0,8)
-	local anim = hash("Idle")
-	
-	msg.post("#sprite", "play_animation", { id = anim })
+
+	-- Animation
+	if patient_combi = 1 then
+		animation_walking = hash(combi1"_vert")
+		animation_bed = hash("combi1_bed")
+		animation_waiting = hash("combi1_hor")
+	elseif patient_combi = 2 then
+		animation_walking = hash("combi2_vert")
+		animation_bed = hash("combi2_bed")
+		animation_waiting = hash("combi2_hor")
+	elseif patient_combi = 3 then
+		animation_walking = hash("combi3_vert")
+		animation_bed = hash("combi3_bed")
+		animation_waiting = hash("combi3_hor")
+	elseif patient_combi = 4 then
+		animation_walking = hash("combi4_vert")
+		animation_bed = hash("combi4_bed")
+		animation_waiting = hash("combi4_hor")
+	elseif patient_combi = 5 then
+		animation_walking = hash("combi5_vert")
+		animation_bed = hash("combi5_bed")
+		animation_waiting = hash(combi5"_hor")
+	elseif patient_combi = 6 then
+		animation_walking = hash("combi6_vert")
+		animation_bed = hash("combi6_bed")
+		animation_waiting = hash("combi6_hor")
+	elseif patient_combi = 7 then
+		animation_walking = hash("combi7_vert")
+		animation_bed = hash("combi7_bed")
+		animation_waiting = hash("combi7_hor")
+	elseif patient_combi = 8 then
+		animation_walking = hash("combi8_vert")
+		animation_bed = hash("combi8_bed")
+		animation_waiting = hash("combi8_hor")
+	elseif patient_combi = 9 then
+		animation_walking = hash("combi9_vert")
+		animation_bed = hash("combi9_bed")
+		animation_waiting = hash("combi9_hor")
+	end
+	msg.post("#sprite", "play_animation", { id = animation_walking })
 	
 	--Roll random sickness
 	patient_sickness = math.random(0,2)
@@ -128,11 +165,23 @@ function init(self)
 end
 
 function update(self, dt)
+	--current position
+	local position = go.get_position()
+	
 	-- Update logic
 	if patient_medical_status == 0 then
 		-- Sick
 		if patient_status == 0 then
 			-- Arriving
+			if position.x < instance_wp.x then
+				-- Arrive at room
+				patient_status = 1
+				msg.post("#sprite", "play_animation", { id = animation_bed })
+				go.set_position(instance_bed)
+			else
+				--still walking
+				go.set_position(position + move_dir * move_speed * dt)
+			end
 		elseif patient_status == 1 then
 			-- In Bed waiting for treating
 		end
@@ -140,6 +189,14 @@ function update(self, dt)
 		-- Cured
 		if patient_status == 2 then
 			-- Leaving
+			if position.x < instance_leave.x then
+				-- Arrive at room
+				patient_status = 3
+				msg.post("#sprite", "play_animation", { id = animation_waiting })
+			else
+				--still walking
+				go.set_position(position + move_dir * move_speed * dt)
+			end
 		elseif patient_status == 3 then
 			-- Waiting for pickup
 		end
@@ -148,9 +205,6 @@ function update(self, dt)
 		-- Send Msg to game that patient died
 		go.delete()
 	end
-
-	-- Animation
-	
 end
 
 function on_message(self, message_id, message, sender)
@@ -165,7 +219,10 @@ function on_message(self, message_id, message, sender)
 					-- cured and leaving
 					patient_medical_status = 1 
 					patient_status = 2
-
+					go.set_position(instance_wp)
+					-- leaving animation
+					msg.post("#sprite", "play_animation", { id = animation_walking })
+					
 					-- free the room
 					local room = {id = patient_room}
 					msg.post("/game#script", "free_room", room)
