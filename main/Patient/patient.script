@@ -39,132 +39,139 @@ local move_dir = vmath.vector3()
 local move_speed = 100
 
 -- Define the visual combination 0:Orange/Red 1:Green/Blond 2:Red/Black
-local patient_combi = 0
+--local self.patient_combi = 0
 
 -- Define the Sickness 0: low 1: medium 2: high
-local patient_sickness = 0
+--local self.patient_sickness = 0
 
 -- Define Room 1/2/3
-local patient_room = 0
+--local self.patient_room = 0
 
 -- Define Medical status 0: Sick 1: Cured 2: Dead
-local patient_medical_status = 0 
+--local self.patient_medical_status = 0 
 
 -- Define status 0: Arriving 1: In bed 2: Leaving 3:Waiting for pickup
-local patient_status = 0
+--local self.patient_status = 0
 
 -- Animations
-local animation_walking = hash("_vert")
-local animation_bed = hash("_bed")
-local animation_wating = hash("_hor")
+--local self.animation_walking = hash("_vert")
+--local self.animation_bed = hash("_bed")
+--local self.animation_wating = hash("_hor")
 
 -- Points for spawned instance
-local instance_spawn = vmath.vector3()
-local instance_wp = vmath.vector3()
-local instance_bed = vmath.vector3()
-local instance_leave = vmath.vector3()
+--local self.instance_spawn = vmath.vector3()
+--local self.instance_wp = vmath.vector3()
+--local self.instance_bed = vmath.vector3()
+--local self.instance_leave = vmath.vector3()
 
 function init(self)
 	-- Roll random visual combination
-	patient_combi = math.random(1,9)
+	local combi = math.random(1,9)
+	self.patient_combi = combi 
 
 	-- Animation
-	if patient_combi == 1 then
-		animation_walking = hash("combi1_vert")
-		animation_bed = hash("combi1_bed")
-		animation_waiting = hash("combi1_hor")
-	elseif patient_combi == 2 then
-		animation_walking = hash("combi2_vert")
-		animation_bed = hash("combi2_bed")
-		animation_waiting = hash("combi2_hor")
-	elseif patient_combi == 3 then
-		animation_walking = hash("combi3_vert")
-		animation_bed = hash("combi3_bed")
-		animation_waiting = hash("combi3_hor")
-	elseif patient_combi == 4 then
-		animation_walking = hash("combi4_vert")
-		animation_bed = hash("combi4_bed")
-		animation_waiting = hash("combi4_hor")
-	elseif patient_combi == 5 then
-		animation_walking = hash("combi5_vert")
-		animation_bed = hash("combi5_bed")
-		animation_waiting = hash("combi5_hor")
-	elseif patient_combi == 6 then
-		animation_walking = hash("combi6_vert")
-		animation_bed = hash("combi6_bed")
-		animation_waiting = hash("combi6_hor")
-	elseif patient_combi == 7 then
-		animation_walking = hash("combi7_vert")
-		animation_bed = hash("combi7_bed")
-		animation_waiting = hash("combi7_hor")
-	elseif patient_combi == 8 then
-		animation_walking = hash("combi8_vert")
-		animation_bed = hash("combi8_bed")
-		animation_waiting = hash("combi8_hor")
-	elseif patient_combi == 9 then
-		animation_walking = hash("combi9_vert")
-		animation_bed = hash("combi9_bed")
-		animation_waiting = hash("combi9_hor")
+	if combi == 1 then
+		self.animation_walking = hash("combi1_vert")
+		self.animation_bed = hash("combi1_bed")
+		self.animation_waiting = hash("combi1_hor")
+	elseif combi == 2 then
+		self.animation_walking = hash("combi2_vert")
+		self.animation_bed = hash("combi2_bed")
+		self.animation_waiting = hash("combi2_hor")
+	elseif combi == 3 then
+		self.animation_walking = hash("combi3_vert")
+		self.animation_bed = hash("combi3_bed")
+		self.animation_waiting = hash("combi3_hor")
+	elseif combi == 4 then
+		self.animation_walking = hash("combi4_vert")
+		self.animation_bed = hash("combi4_bed")
+		self.animation_waiting = hash("combi4_hor")
+	elseif combi == 5 then
+		self.animation_walking = hash("combi5_vert")
+		self.animation_bed = hash("combi5_bed")
+		self.animation_waiting = hash("combi5_hor")
+	elseif combi == 6 then
+		self.animation_walking = hash("combi6_vert")
+		self.animation_bed = hash("combi6_bed")
+		self.animation_waiting = hash("combi6_hor")
+	elseif combi == 7 then
+		self.animation_walking = hash("combi7_vert")
+		self.animation_bed = hash("combi7_bed")
+		self.animation_waiting = hash("combi7_hor")
+	elseif combi == 8 then
+		self.animation_walking = hash("combi8_vert")
+		self.animation_bed = hash("combi8_bed")
+		self.animation_waiting = hash("combi8_hor")
+	elseif combi == 9 then
+		self.animation_walking = hash("combi9_vert")
+		self.animation_bed = hash("combi9_bed")
+		self.animation_waiting = hash("combi9_hor")
 	end
-	msg.post("#sprite", "play_animation", { id = animation_walking })
+	msg.post("#sprite", "play_animation", { id = self.animation_walking })
+
+	-- Patient arrives sick
+	self.patient_status = 0
+	self.patient_medical_status = 0
 	
 	--Roll random sickness
-	patient_sickness = math.random(0,2)
+	local sickness = math.random(0,2)
+	self.patient_sickness = sickness
 
 	--Roll random room todo: remove
-	patient_room = math.random(1, 3)
+	local room = math.random(1, 3)
+	self.patient_room = room
 	
 	-- Set move direction
 	move_dir.x = -1
 
 	-- Set Points for Sickness/Room
 	-- Low
-	if patient_sickness == 0 then
-		instance_spawn = patient_low_spawn
-		if patient_room == 1 then
-			instance_wp = patient_low_wp_r1
-			instance_bed = patient_low_bed_r1 
-		elseif patient_room ==2 then
-			instance_wp = patient_low_wp_r2 
-			instance_bed = patient_low_bed_r2
-		elseif patient_room == 3 then
-			instance_wp = patient_low_wp_r3
-			instance_bed = patient_low_bed_r3
+	if sickness == 0 then
+		self.instance_spawn = patient_low_spawn
+		if room == 1 then
+			self.instance_wp = patient_low_wp_r1
+			self.instance_bed = patient_low_bed_r1 
+		elseif room ==2 then
+			self.instance_wp = patient_low_wp_r2 
+			self.instance_bed = patient_low_bed_r2
+		elseif room == 3 then
+			self.instance_wp = patient_low_wp_r3
+			self.instance_bed = patient_low_bed_r3
 		end
-		instance_leave = patient_low_leave
+		self.instance_leave = patient_low_leave
 	-- Medium
-	elseif patient_sickness == 1 then
-		instance_spawn = patient_medium_spawn
-		if patient_room == 1 then
-			instance_wp = patient_medium_wp_r1 
-			instance_bed = patient_medium_bed_r1 
-		elseif patient_room ==2 then
-			instance_wp = patient_medium_wp_r2 
-			instance_bed = patient_medium_bed_r2 
-		elseif patient_room == 3 then
-			instance_wp = patient_medium_wp_r3
-			instance_bed = patient_medium_bed_r3 
+		elseif sickness == 1 then
+		self.instance_spawn = patient_medium_spawn
+		if room == 1 then
+			self.instance_wp = patient_medium_wp_r1 
+			self.instance_bed = patient_medium_bed_r1 
+		elseif room ==2 then
+			self.instance_wp = patient_medium_wp_r2 
+			self.instance_bed = patient_medium_bed_r2 
+		elseif room == 3 then
+			self.instance_wp = patient_medium_wp_r3
+			self.instance_bed = patient_medium_bed_r3 
 		end
-		instance_leave = patient_medium_leave
+		self.instance_leave = patient_medium_leave
 
 	--High
-	elseif patient_sickness == 1 then
-		instance_spawn = patient_high_spawn
-		if patient_room == 1 then
-			instance_wp = patient_high_wp_r1
-			instance_bed = patient_high_bed_r1 
-		elseif patient_room ==2 then
-			instance_wp = patient_high_wp_r2
-			instance_bed = patient_high_bed_r2
-		elseif patient_room == 3 then
-			instance_wp = patient_high_wp_r3
-			instance_bed = patient_high_bed_r2 
+		elseif sickness == 2 then
+		self.instance_spawn = patient_high_spawn
+		if room == 1 then
+			self.instance_wp = patient_high_wp_r1
+			self.instance_bed = patient_high_bed_r1 
+		elseif room ==2 then
+			self.instance_wp = patient_high_wp_r2
+			self.instance_bed = patient_high_bed_r2
+		elseif room == 3 then
+			self.instance_wp = patient_high_wp_r3
+			self.instance_bed = patient_high_bed_r2 
 		end
-		instance_leave = patient_high_leave
+		self.instance_leave = patient_high_leave
 	end
 
 	-- Set to spawnpoint
-	go.set_position(instance_spawn)
+	go.set_position(self.instance_spawn)
 end
 
 function update(self, dt)
@@ -172,38 +179,39 @@ function update(self, dt)
 	local position = go.get_position()
 	
 	-- Update logic
-	if patient_medical_status == 0 then
+	if self.patient_medical_status == 0 then
 		-- Sick
-		if patient_status == 0 then
+		if self.patient_status == 0 then
 			-- Arriving
-			if position.x < instance_wp.x then
+			if position.x < self.instance_wp.x then
 				-- Arrive at room
-				patient_status = 1
-				msg.post("#sprite", "play_animation", { id = animation_bed })
-				go.set_position(instance_bed)
+				self.patient_status = 1
+
+				msg.post("#sprite", "play_animation", { id = self.animation_bed })
+				go.set_position(self.instance_bed)
 			else
 				--still walking
 				go.set_position(position + move_dir * move_speed * dt)
 			end
-		elseif patient_status == 1 then
+		elseif self.patient_status == 1 then
 			-- In Bed waiting for treating
 		end
-	elseif patient_medical_status == 1 then
+	elseif self.patient_medical_status == 1 then
 		-- Cured
-		if patient_status == 2 then
+		if self.patient_status == 2 then
 			-- Leaving
-			if position.x < instance_leave.x then
+			if position.x < self.instance_leave.x then
 				-- Arrive at room
-				patient_status = 3
-				msg.post("#sprite", "play_animation", { id = animation_waiting })
+				self.patient_status = 3
+				msg.post("#sprite", "play_animation", { id = self.animation_waiting })
 			else
 				--still walking
 				go.set_position(position + move_dir * move_speed * dt)
 			end
-		elseif patient_status == 3 then
+		elseif self.patient_status == 3 then
 			-- Waiting for pickup
 		end
-	elseif patient_medical_status == 2 then
+	elseif self.patient_medical_status == 2 then
 		-- Dead
 		-- Send Msg to game that patient died
 		go.delete()
@@ -211,34 +219,34 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if patient_medical_status == 0 then
+	if self.patient_medical_status == 0 then
 		-- Sick
-		if patient_status == 0 then
+		if self.patient_status == 0 then
 			-- Arriving
-		elseif patient_status == 1 then
+		elseif self.patient_status == 1 then
 			--In Bed waiting for treating from player
 			if message_id == hash("treating")then
-				if message.cure == patient_sickness then
+				if message.cure == self.patient_sickness then
 					-- cured and leaving
-					patient_medical_status = 1 
-					patient_status = 2
-					go.set_position(instance_wp)
+					self.patient_medical_status = 1 
+					self.patient_status = 2
+					go.set_position(self.instance_wp)
 					-- leaving animation
-					msg.post("#sprite", "play_animation", { id = animation_walking })
+					msg.post("#sprite", "play_animation", { id = self.animation_walking })
 					
 					-- free the room
-					local room = {id = patient_room}
+					local room = {id = self.patient_room}
 					msg.post("/game#script", "free_room", room)
 				else
 					-- Wrong treating = - HP/Time
 				end
 			end
 		end
-	elseif patient_medical_status == 1 then
+	elseif self.patient_medical_status == 1 then
 		-- Cured
-		if patient_status == 2 then
+		if self.patient_status == 2 then
 			-- Leaving
-		elseif patient_status == 3 then
+		elseif self.patient_status == 3 then
 			-- Waiting for pickup
 			if message_id == hash("picked_up") then
 				-- send Msg to game that patient cured
@@ -246,7 +254,7 @@ function on_message(self, message_id, message, sender)
 				go.delete()
 			end
 		end
-	elseif patient_medical_status == 2 then
+	elseif self.patient_medical_status == 2 then
 		-- Dead
 	end
 end
