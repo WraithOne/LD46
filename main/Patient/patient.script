@@ -7,8 +7,11 @@ local patient_sickness = 0
 -- Define Room 1/2/3
 local patient_room = 0
 
--- Define Medical status 0: Sick 1: Cured
-local patient_status = 0 
+-- Define Medical status 0: Sick 1: Cured 2: Dead
+local patient_medical_status = 0 
+
+-- Define status 0: Arriving 1: In bed 2: Leaving 3:Waiting for pickup
+local patient_status = 0
 
 -- Spawns and waypoints
 local patient_low_spawn = vmath.vector3(592, 305, 0.2)
@@ -50,49 +53,140 @@ local instance_wp = vmath.vector3()
 local instance_bed = vmath.vector3()
 local instance_leave = vmath.vector3()
 
+-- Move direction
+local move_dir = vmath.vector3()
+
+-- Move speed
+move speed = 100
+
+-- Animations
+local animation_arriving = hash("Arriving")
+local animation_bed = hash("inBed")
+local animation = hash("leaving")
+
 function init(self)
 	-- Roll random visual combination
-	patient_combi = math.random(0,2)
+	patient_combi = math.random(0,8)
 	local anim = hash("Idle")
-	if patient_combi == 0 then
-		anim = hash("combi1_hori")
-	elseif patient_combi == 1 then
-		anim = hash("combi2_hori")
-	elseif patient_combi == 2 then
-		anim = hash("combi3_hori")
-	end
+	
 	msg.post("#sprite", "play_animation", { id = anim })
 	
 	--Roll random sickness
 	patient_sickness = math.random(0,2)
 
-	-- Set position
-	local p = vmath.vector3()
+	-- Set move direction
+	move_dir.x = -1
+
+	-- Set Points for Sickness/Room
+	-- Low
 	if patient_sickness == 0 then
 		instance_spawn = patient_low_spawn
-		instance_wp = 
-		instance_bed = 
-		instance_leave = 
+		if patient_room == 1 then
+			instance_wp = patient_low_wp_r1
+			instance_bed = patient_low_bed_r1 
+		elseif patient_room ==2 then
+			instance_wp = patient_low_wp_r2 
+			instance_bed = patient_low_bed_r2
+		elseif patient_room == 3 then
+			instance_wp = patient_low_wp_r3
+			instance_bed = patient_low_bed_r3
+		end
+		instance_leave = patient_low_leave
+	-- Medium
 	elseif patient_sickness == 1 then
-		instance_spawn = 
-		instance_wp = 
-		instance_bed = 
-		instance_leave = 
+		instance_spawn = patient_medium_spawn
+		if patient_room == 1 then
+			instance_wp = patient_medium_wp_r1 
+			instance_bed = patient_medium_bed_r1 
+		elseif patient_room ==2 then
+			instance_wp = patient_medium_wp_r2 
+			instance_bed = patient_medium_bed_r2 
+		elseif patient_room == 3 then
+			instance_wp = patient_medium_wp_r3
+			instance_bed = patient_medium_bed_r3 
+		end
+		instance_leave = patient_medium_leave
+
+	--High
 	elseif patient_sickness == 1 then
-		instance_spawn = 
-		instance_wp = 
-		instance_bed = 
-		instance_leave = 
+		instance_spawn = patient_high_spawn
+		if patient_room == 1 then
+			instance_wp = patient_high_wp_r1
+			instance_bed = patient_high_bed_r1 
+		elseif patient_room ==2 then
+			instance_wp = patient_high_wp_r2
+			instance_bed = patient_high_bed_r2
+		elseif patient_room == 3 then
+			instance_wp = patient_high_wp_r3
+			instance_bed = patient_high_bed_r2 
+		end
+		instance_leave = patient_high_leave
 	end
-	go.set_position(p)
+
+	-- Set to spawnpoint
+	go.set_position(instance_spawn)
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	-- Update logic
+	if patient_medical_status == 0 then
+		-- Sick
+		if patient_status == 0 then
+			-- Arriving
+		elseif patient_status == 1 then
+			-- In Bed waiting for treating
+		end
+	elseif patient_medical_status == 1 then
+		-- Cured
+		if patient_status == 2 then
+			-- Leaving
+		elseif patient_status == 3 then
+			-- Waiting for pickup
+		end
+	elseif patient_medical_status == 2 then
+		-- Dead
+		-- Send Msg to game that patient died
+		go.delete()
+	end
+
+	-- Animation
+	
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+	if patient_medical_status == 0 then
+		-- Sick
+		if patient_status == 0 then
+			-- Arriving
+		elseif patient_status == 1 then
+			--In Bed waiting for treating from player
+			if message_id == hash("treating")then
+				if message.cure == patient_sickness then
+					-- cured and leaving
+					patient_medical_status = 1 
+					patient_status = 2
+
+					-- free the room
+					local room = {id = patient_room}
+					msg.post("/game#script", "free_room", room)
+				else
+					-- Wrong treating = - HP/Time
+				end
+			end
+		end
+	elseif patient_medical_status == 1 then
+		-- Cured
+		if patient_status == 2 then
+			-- Leaving
+		elseif patient_status == 3 then
+			-- Waiting for pickup
+			if message_id == hash("picked_up") then
+				-- send Msg to game that patient cured
+				msg.post("/game#script", "patient_cured")
+				go.delete()
+			end
+		end
+	elseif patient_medical_status == 2 then
+		-- Dead
+	end
 end

@@ -1,23 +1,4 @@
 animations {
-  id: "tshirtgrbl"
-  images {
-    image: "/assets/Patient/TShirtgrbl.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/TShirtgrbl2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/assets/Patient/TShirtgrbl3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 60
-  flip_horizontal: 0
-  flip_vertical: 0
-}
-animations {
   id: "tshirtgbr"
   images {
     image: "/assets/Patient/TShirtgrbr.png"
@@ -162,6 +143,39 @@ animations {
   }
   images {
     image: "/assets/Patient/TShirtrtsw3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi1_vert"
+  images {
+    image: "/assets/Patient/TShirtgrbl.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi1_hor"
+  images {
+    image: "/assets/Patient/TShirtgrbl2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "combi_bed"
+  images {
+    image: "/assets/Patient/TShirtgrbl3.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
